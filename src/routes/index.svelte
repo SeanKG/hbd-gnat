@@ -37,7 +37,11 @@
 </ScrollySticky>
 
 <ScrollySticky>
-	<h1>Also today is Gnat's Birthday!</h1>
+	<h1>
+		Also today is Gnat's Birthday!
+		<br />
+		<small>(April 11)</small>
+	</h1>
 	<div slot="sticky" class="gnat-contain sticky">
 		<img  alt="Gnat" src="/gnat.jpeg" class="gnat"/>
 		<img alt="sunglasses" src="/sunglasses2.png" class="sunglasses top"/>
@@ -55,7 +59,7 @@
 </ScrollySticky>
 
 <ScrollySticky>
-	<h1>Happy Birthday Gnat!!! 🎉🎉🎉</h1>
+	<h1>Happy Birthday Gnat!!! <br />🎉🎉🎉</h1>
 	<div slot="sticky" class="sticky">
 		<div class="gnat-contain">
 			<img alt="Gnat" src="/gnat.jpeg" class="gnat"/>
