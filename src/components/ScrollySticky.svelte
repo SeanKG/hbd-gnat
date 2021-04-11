@@ -42,5 +42,6 @@
 		right: 0;
 		height: 100vh;
 		width: 60vw;
+		display: flex;
 	}
 </style>

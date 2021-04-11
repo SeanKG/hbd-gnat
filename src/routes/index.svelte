@@ -1,5 +1,4 @@
 <script>
-	import successkid from 'images/successkid.jpg';
 	import ScrollySticky from '../components/ScrollySticky.svelte';
 	import { fade } from 'svelte/transition';
 </script>
@@ -9,19 +8,19 @@
 </svelte:head>
 
 <ScrollySticky>
-	<h1>Hello!!!</h1>
-	<div transition:fade slot="sticky">(scroll down)</div>
+	<h1>Hey there!</h1>
+	<h2 transition:fade slot="sticky">
+		(scroll down) <br />
+		👇
+	</h2>
 </ScrollySticky>
 
 <ScrollySticky>
-	<h2>This is GNAT -></h2>
-	<img transition:fade slot="sticky" alt="Gnat" src="{successkid}" class="two" >
+	<h1>This is GNAT 👉</h1>
+	<img transition:fade slot="sticky" alt="Gnat" src="/gnat.jpeg" class="two" >
 </ScrollySticky>
 
 <style>
-	h1, h2, p {
-	}
-
 	h1 {
 		font-size: 2.8em;
 		text-transform: uppercase;
@@ -30,9 +29,7 @@
 
 	h1, h2, p {
 		text-align: center;
-		margin: 0 auto;
-		width: 40vw;
-		margin-right: 60vw;
+		width: 100%;
 		align-self: center;
 	}
 
@@ -42,15 +39,5 @@
 		right: 0;
 		height: 100vh;
 		width: 60vw;
-	}
-
-	.two {
-		opacity: 50%;;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
 	}
 </style>
