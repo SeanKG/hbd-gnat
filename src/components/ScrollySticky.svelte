@@ -1,5 +1,12 @@
 <script>
-	import IntersectionObserver from "svelte-intersection-observer";
+	import { onMount } from 'svelte';
+
+	let IntersectionObserver;
+
+	onMount(async () => {
+		const module = await import('svelte-intersection-observer');
+		IntersectionObserver = module.default;
+	});
 
 	let element;
 	let intersecting;
@@ -9,7 +16,7 @@
 	<title>Happy Birthday GNAT!!!?</title>
 </svelte:head> -->
 
-<IntersectionObserver {element} bind:intersecting threshold={1}>
+<svelte:component this={IntersectionObserver} {element} bind:intersecting threshold={1}>
 	<section>
         <div bind:this={element} class="scrolly">
             <slot/>
@@ -20,7 +27,7 @@
             </div>
 		{/if}
 	</section>
-</IntersectionObserver>
+</svelte:component>
 
 <style>
 	section {
