@@ -1,6 +1,7 @@
 <script>
 	import ScrollySticky from '../components/ScrollySticky.svelte';
-	import { fade } from 'svelte/transition';
+	import Confetti from '../components/Confetti.svelte';
+	import { fade, fly } from 'svelte/transition';
 </script>
 
 <svelte:head>
@@ -9,7 +10,7 @@
 
 <ScrollySticky>
 	<h1>Hey there!</h1>
-	<h2 transition:fade slot="sticky">
+	<h2 out:fade slot="sticky">
 		(scroll down) <br />
 		👇
 	</h2>
@@ -17,7 +18,54 @@
 
 <ScrollySticky>
 	<h1>This is GNAT 👉</h1>
-	<img transition:fade slot="sticky" alt="Gnat" src="/gnat.jpeg" class="two" >
+	<div slot="sticky" in:fade class="gnat-contain sticky">
+		<img  alt="Gnat" src="/gnat.jpeg" class="gnat"/>
+	</div>
+</ScrollySticky>
+
+<ScrollySticky>
+	<h1>Gnat is pretty cool</h1>
+	<div slot="sticky" class="gnat-contain sticky">
+		<img  alt="Gnat" src="/gnat.jpeg" class="gnat"/>
+		<img alt="sunglasses" 
+			src="/sunglasses2.png" 
+			class="sunglasses" 
+			in:fly="{{ x: 200, duration: 1000 }}"
+			out:fade
+		/>
+	</div>
+</ScrollySticky>
+
+<ScrollySticky>
+	<h1>Also today is Gnat's Birthday!</h1>
+	<div slot="sticky" class="gnat-contain sticky">
+		<img  alt="Gnat" src="/gnat.jpeg" class="gnat"/>
+		<img alt="sunglasses" src="/sunglasses2.png" class="sunglasses top"/>
+		<img alt="birthday hat" src="/birthday-hat.png" class="hat" in:fly="{{ y: -300, duration: 1000}}"/>
+	</div>
+</ScrollySticky>
+
+<ScrollySticky>
+	<h1>So I made this dumb webiste to wish her a happy birthday 💻</h1>
+	<div slot="sticky" class="gnat-contain sticky">
+		<img  alt="Gnat" src="/gnat.jpeg" class="gnat"/>
+		<img alt="sunglasses" src="/sunglasses2.png" class="sunglasses top"/>
+		<img alt="birthday hat" src="/birthday-hat.png" class="hat"/>
+	</div>
+</ScrollySticky>
+
+<ScrollySticky>
+	<h1>Happy Birthday Gnat!!! 🎉🎉🎉</h1>
+	<div slot="sticky" class="sticky">
+		<div class="gnat-contain">
+			<img alt="Gnat" src="/gnat.jpeg" class="gnat"/>
+			<img alt="sunglasses" src="/sunglasses2.png" class="sunglasses top"/>
+			<img alt="birthday hat" src="/birthday-hat.png" class="hat"/>
+		</div>
+		<div class="confetti">
+			<Confetti />
+		</div>
+	</div>
 </ScrollySticky>
 
 <style>
@@ -33,11 +81,50 @@
 		align-self: center;
 	}
 
-	img {
+	.sticky {
+		display: flex;
+		margin: auto;
+	}
+
+	.gnat-contain {
+		width: 631px;
+		height: 631px;
+		position: relative;
+	}
+
+	.gnat {
+		display: block;
+		width: auto;
+		height: auto;
+		margin: auto;
+		border-radius: 50%;
+	}
+
+	.sunglasses {
+		position: absolute;
+		width: 230px;
+		top: 162px;
+		left: 211px;
+	}
+
+	.hat {
+		position: absolute;
+		width: 200px;
+		top: -146px;
+		left: 226px;
+		height: 217px;
+	}
+
+	.top {
+		z-index: 99;
+	}
+
+	.confetti {
 		position: fixed;
 		top: 0;
 		right: 0;
-		height: 100vh;
-		width: 60vw;
+		bottom: 0;
+		left: 0;
+		z-index: 120;
 	}
 </style>

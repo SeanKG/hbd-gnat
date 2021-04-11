@@ -16,7 +16,7 @@
 	<title>Happy Birthday GNAT!!!?</title>
 </svelte:head> -->
 
-<svelte:component this={IntersectionObserver} {element} bind:intersecting threshold={1}>
+<svelte:component this={IntersectionObserver} {element} bind:intersecting threshold={.3}>
 	<section>
         <div bind:this={element} class="scrolly">
             <slot/>
@@ -38,6 +38,7 @@
 
 	.scrolly {
 		width: 40vw;
+		padding-left: 20px;
 		margin-right: 60vw;
 		vertical-align: middle;
 		align-self: center;
