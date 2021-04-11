@@ -79,11 +79,14 @@
 		text-align: center;
 		width: 100%;
 		align-self: center;
+		z-index: 110;
+		position: relative;
 	}
 
 	.sticky {
 		display: flex;
 		margin: auto;
+		z-index: 100;
 	}
 
 	.gnat-contain {
@@ -126,5 +129,11 @@
 		bottom: 0;
 		left: 0;
 		z-index: 120;
+	}
+
+	@media screen and (max-width: 450px) {
+		.gnat-contain {
+		    transform: scale(0.5) translateX(-335px);
+		}
 	}
 </style>
